@@ -1,5 +1,5 @@
-# Dictionary containing a list of user information
-database = {"edison1278": "123", "micheal1278": "124", "jeremy1278": "125"}
+import users as us
+import pickle
 
 
 # ask user to enter credentials and validate credentials
@@ -12,9 +12,12 @@ def login_credentials():
 
 # Search Dictionary for user credentials
 def validate_username(username, password):
-    for usernames in database:
+    # read current values in database
+    users = us.read_users()
+
+    for usernames in users:
         if usernames == username:  # if users username matches a value in database
-            if password == database[username]:  # check if password matches the password for that username
+            if password == users[username]:  # check if password matches the password for that username
                 print("Login granted.")
                 break
         else:  # if username or password did not match
