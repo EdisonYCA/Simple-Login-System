@@ -14,5 +14,5 @@ def main():
 
 
 if __name__ == "__main__":
-    users.store_users()
     main()
+    users.read_users()
